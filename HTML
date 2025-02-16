@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exceptional Reality Engineering</title>
+  <meta name="description" content="Exceptional Reality Engineering practical project featuring innovative solutions and cutting-edge engineering." />
+  <meta name="keywords" content="engineering, reality, innovative, practical, blog, business" />
+
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Exceptional Reality Engineering",
+    "url": "http://www.yourdomain.com",
+    "logo": "http://www.yourdomain.com/images/logo.png",
+    "sameAs": [
+      "http://www.facebook.com/yourpage",
+      "http://www.twitter.com/yourpage",
+      "http://www.instagram.com/yourpage"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http://www.yourdomain.com",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "http://www.yourdomain.com/section",
+          "name": "Section Details"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Article Structured Data (Sample) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sample Subsection Article",
+    "image": [
+      "https://via.placeholder.com/800x600?text=Sample-Image"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Your Name"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Exceptional Reality Engineering",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://www.yourdomain.com/images/logo.png"
+      }
+    },
+    "datePublished": "2025-02-03"
+  }
+  </script>
+
+  <!-- GLightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- CKEditor -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Admin Login Button -->
+  <button id="admin-login-button" aria-label="Open Admin Panel" tabindex="1">Admin</button>
+
+  <!-- Admin Panel -->
+  <div id="admin-panel" role="dialog" aria-labelledby="admin-panel-header" aria-hidden="true">
+    <div id="admin-panel-header">
+      <span>Admin Panel</span>
+      <button id="admin-close" aria-label="Close Admin Panel" tabindex="2">X</button>
+    </div>
+    <div class="admin-panel-body">
+      <form id="admin-form" aria-labelledby="admin-panel-header" role="form">
+        <label for="admin-section">Section:</label>
+        <select id="admin-section" required aria-describedby="section-description">
+          <option value="section1">Interior Design (Section 1)</option>
+          <option value="section2">Architectural Design (Section 2)</option>
+        </select>
+        <label for="admin-title">Title:</label>
+        <input type="text" id="admin-title" required />
+        <label for="admin-image">Image URL(s) (comma separated):</label>
+        <input type="text" id="admin-image" required />
+        <label for="admin-info">Architectural Description (HTML allowed):</label>
+        <textarea id="admin-info" rows="3" required></textarea>
+        <button type="submit" id="admin-submit" tabindex="3">Add Subsection</button>
+        <button type="button" id="admin-cancel" style="display:none;" tabindex="4">Cancel Edit</button>
+      </form>
+      <div id="manage-subsections" role="list">
+        <h4>Manage Subsections</h4>
+        <div id="manage-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Exceptional Reality Engineering</h1>
+    <p>Innovating the future with exceptional solutions.</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="#home" tabindex="5">Home</a></li>
+      <li><a href="#services" tabindex="6">Services</a></li>
+      <li><a href="#blog" tabindex="7">Blog</a></li>
+      <li><a href="#testimonials" tabindex="8">Testimonials</a></li>
+      <li><a href="#contact" tabindex="9">Contact</a></li>
+      <li><a href="#newsletter" tabindex="10">Newsletter</a></li>
+    </ul>
+  </nav>
+
+  <!-- Global Search -->
+  <section id="global-search-section">
+    <label for="global-search" class="visually-hidden">Search for content</label>
+    <input type="text" id="global-search" placeholder="Search..." aria-label="Global Search" tabindex="11" />
+    <ul id="search-suggestions" aria-live="polite"></ul>
+  </section>
+
+  <!-- Main Content -->
+  <main id="home" aria-labelledby="home-heading">
+    <h2 id="home-heading">Main Sections</h2>
+    <div class="sections-container">
+      <div class="main-section" data-section="section1" tabindex="12">
+        <h3>Interior Design</h3>
+        <p>Explore our modern interior design ideas and layouts.</p>
+      </div>
+      <div class="main-section" data-section="section2" tabindex="13">
+        <h3>Architectural Design</h3>
+        <p>Discover innovative architectural designs and structures.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dynamic Sidebar -->
+  <aside id="dynamic-sidebar" class="dynamic-sidebar" aria-labelledby="sidebar-heading" role="navigation" aria-hidden="true">
+    <button id="close-sidebar" aria-label="Close Sidebar" tabindex="14">&times;</button>
+    <h3 id="sidebar-heading">Subsections</h3>
+    <ul id="sidebar-list"></ul>
+  </aside>
+
+  <!-- Modal Overlay -->
+  <div id="fullpage-overlay" role="dialog" aria-modal="true" aria-labelledby="fullpage-heading" aria-hidden="true">
+    <button id="close-fullpage" aria-label="Close Modal" tabindex="15">X</button>
+    <div id="fullpage-content"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Exceptional Reality Engineering. All rights reserved.</p>
+  </footer>
+
+  <!-- GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <!-- Link to External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
